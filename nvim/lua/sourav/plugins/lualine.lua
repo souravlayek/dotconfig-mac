@@ -65,6 +65,26 @@ return {
           { "fileformat" },
           { "filetype" },
         },
+        lualine_z = {
+          {
+            -- // Show no of unsaved files
+            function()
+              local count = 0
+              for _, buf in ipairs(vim.api.nvim_list_bufs()) do
+                if vim.api.nvim_buf_get_option(buf, "modified") then
+                  count = count + 1
+                  -- return "Unsaved buffers" -- any message or icon
+                end
+              end
+
+              if count == 0 then
+                return ""
+              else
+                return count .. " Unsaved"
+              end
+            end,
+          },
+        },
       },
     })
   end,
