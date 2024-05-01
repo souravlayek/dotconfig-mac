@@ -15,8 +15,15 @@ return {
     -- configure nvim-tree
     nvimtree.setup({
       view = {
+        -- side = "right",
         width = 35,
+        adaptive_size = true, --  Auto increse size of the Nvim Tree
         relativenumber = true,
+      },
+
+      -- TO show Unsaved buffers
+      modified = {
+        enable = true,
       },
       -- change folder arrow icons
       renderer = {
@@ -24,6 +31,10 @@ return {
           enable = true,
         },
         icons = {
+          -- TO show Unsave buffers
+          show = {
+            modified = true,
+          },
           glyphs = {
             folder = {
               arrow_closed = "", -- arrow when folder is closed
@@ -37,6 +48,7 @@ return {
       -- window splits
       actions = {
         open_file = {
+          -- quit_on_open = true, -- Auto close explorer
           window_picker = {
             enable = false,
           },
